@@ -1,0 +1,71 @@
+{
+  "table" : {
+    "tableName" : "Recieving",
+    "columns" : [
+      {
+        "column" : "player_id",
+        "displayName" : "Player ID"
+      },
+      {
+        "column" : "rank",
+        "displayName" : "Rank"
+      },
+      {
+        "column" : "age",
+        "displayName" : "Age"
+      },
+      {
+        "column" : "games",
+        "displayName" : "Games"
+      },
+      {
+        "column" : "starts",
+        "displayName" : "Starts"
+      },
+      {
+        "column" : "targets",
+        "displayName" : "Targets"
+      },
+      {
+        "column" : "receptions",
+        "displayName" : "Receptions"
+      },
+      {
+        "column" : "catch_percent",
+        "displayName" : "Catch %"
+      },
+      {
+        "column" : "yards",
+        "displayName" : "Yards"
+      },
+      {
+        "column" : "yards_per_rec",
+        "displayName" : "Yards Per Reception"
+      },
+      {
+        "column" : "td",
+        "displayName" : "Touchdowns"
+      },
+      {
+        "column" : "long",
+        "displayName" : "Long"
+      },
+      {
+        "column" : "yards_per_tar",
+        "displayName" : "Yards Per Target"
+      },
+      {
+        "column" : "rec_per_game",
+        "displayName" : "Receptions Per Game"
+      },
+      {
+        "column" : "yards_per_game",
+        "displayName" : "Yards Per Game"
+      },
+      {
+        "column" : "fumbles",
+        "displayName" : "Fumbles"
+      }
+    ]
+  }
+}
