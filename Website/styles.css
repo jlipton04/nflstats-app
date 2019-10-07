@@ -37,6 +37,15 @@ th {
   text-align: center;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 .signup-container {
   background-color: white;
   border-radius: 10px;
@@ -49,4 +58,8 @@ th {
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.input-label {
+  font-weight: bold;
 }
