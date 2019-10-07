@@ -4,8 +4,10 @@ $(document).ready(function(){
 
  var tableContainer = $(".table-container");
  $.getJSON('tables/'+ tableName +'.json', function(json) {
-   console.log(json);
    var table = json.table;
+
+   $(".table-title").text(table.tableName);
+
    tableContainer.append("<tr>");
    for (var i = 0; i < table.columns.length; i++) {
      tableContainer.append("<th>"+ table.columns[i].displayName +"</th>");

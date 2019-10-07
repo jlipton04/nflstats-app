@@ -15,6 +15,12 @@ body {
   overflow-x: auto;
 }
 
+.table-title {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 20px;
+}
+
 .table-container {
   border: 1px solid black;
   border-radius: 10px;
