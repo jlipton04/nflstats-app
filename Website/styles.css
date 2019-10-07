@@ -2,6 +2,31 @@ body {
   background-color: #0000ff0a;
 }
 
+.header {
+  margin: 30px;
+}
+
+.app-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.page-content {
+  overflow-x: auto;
+}
+
 .table-container {
-  
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+th {
+  text-align: center;
 }
