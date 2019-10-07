@@ -9,10 +9,22 @@
   <script type="text/javascript" src="table.js"></script>
 
   <?php
-    $game = array("game_id", "week", "day", "date", "time", "team_id", "w_or_l", "ot", "home_or_away", "opp_team_id", "points_scored", "points_allowed", "first_downs", "total_yards", "passing_yards", "rushing_yards", "turnovers_lost", "opp_first_downs", "opp_total_yards", "opp_passing_yards", "opp_rushing_yards", "opp_turnovers_lost");
-    $player = array("player_id", "name", "position", "team_id");
-    $strJsonFileContents = file_get_contents("tables/tableNames.json");
-    var_dump($strJsonFileContents);
+    //Get JSON Table Data
+    $strJsonFileContents = file_get_contents("tables/tableData.json");
+    $tableData = json_decode($strJsonFileContents, true);
+
+    //GET QueryString
+    $tableName = $_GET["name"];
+    $tableColumns = null;
+
+    //Writes table column names
+    for ($i = 0; $i < count($tableData); $i++) {
+      if ($tableName == $tableData["tableNames"][$i]["name"]) {
+        $tableColumns = $tableData["tableNames"][$i]["columns"];
+      }
+    }
+
+    //var_dump($tableColumns);
     ?>
 </head>
 <body>
@@ -23,6 +35,20 @@
     <div class="row page-content">
       <div class="table-title"></div>
       <table class="table-container">
+        <thead>
+          <tr><?php for ($i = 0; $i < count($tableColumns); $i++) { echo "<th>" . $tableColumns[$i]["displayName"] . "</th>"; } ?></tr>
+        </thead>
+        <tbody>
+          <?php
+            for ($x = 0; $x < 10; $x++) {
+              echo "<tr>";
+              for ($y = 0; $y < count($tableColumns); $y++) {
+                echo "<td>asdf</td>";
+              }
+              echo "</tr>";
+            }
+          ?>
+      </tbody>
       </table>
     </div>
   </div>

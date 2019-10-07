@@ -3,7 +3,7 @@ $(document).ready(function(){
   tableName = urlParams.get('name');
 
  var tableContainer = $(".table-container");
- $.getJSON('tables/'+ tableName +'.json', function(json) {
+ /*$.getJSON('tables/'+ tableName +'.json', function(json) {
    var table = json.table;
 
    $(".table-title").text(table.tableName);
@@ -26,5 +26,5 @@ $(document).ready(function(){
      }
      tableContainer.append("</tr>");
    }
- });
+ });*/
 });
