@@ -36,3 +36,17 @@ th, td {
 th {
   text-align: center;
 }
+
+.signup-container {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.signup-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
