@@ -14,7 +14,7 @@
       <div class="app-title">NFL STATS APP</div>
     </div>
     <div class="row page-content">
-      
+
     </div>
   </div>
 </body>

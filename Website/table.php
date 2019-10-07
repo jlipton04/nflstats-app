@@ -43,6 +43,7 @@
             for ($x = 0; $x < 10; $x++) {
               echo "<tr>";
               for ($y = 0; $y < count($tableColumns); $y++) {
+                //Make it pull from SQL query
                 echo "<td>asdf</td>";
               }
               echo "</tr>";
