@@ -18,7 +18,7 @@
     $tableColumns = null;
 
     //Writes table column names
-    for ($i = 0; $i < count($tableData); $i++) {
+    for ($i = 0; $i < count($tableData["tableNames"]); $i++) {
       if ($tableName == $tableData["tableNames"][$i]["name"]) {
         $tableColumns = $tableData["tableNames"][$i]["columns"];
       }
