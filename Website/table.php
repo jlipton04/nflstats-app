@@ -31,11 +31,13 @@
 
     //GET QueryString
     $tableName = $_GET["name"];
-    $tableName = substr($tableName,1,strlen($tableName)-2);
+    //$tableName = substr($tableName,1,strlen($tableName)-2);
     $tableColumns = null;
     $sql = "SELECT * FROM " . $tableName . ";";
 
     $result = mysqli_query($conn, $sql);
+
+    echo $sql;
 
     //Matches table name from querystring to json data
     for ($i = 0; $i < count($tableData["tableNames"]); $i++) {
