@@ -37,7 +37,7 @@
 
     $result = mysqli_query($conn, $sql);
 
-    echo $sql;
+    //echo $sql;
 
     //Matches table name from querystring to json data
     for ($i = 0; $i < count($tableData["tableNames"]); $i++) {
