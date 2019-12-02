@@ -96,6 +96,7 @@
           <input class="filterVal" type="text" />
           <input class="filterAdd" type="button" value="Add Filter" />
         </div>
+        <input type="button" class="filterClear" value="Clear Filters" />
       </div>
       <table class="table-container">
         <thead>

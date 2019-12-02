@@ -33,4 +33,17 @@ $(document).ready(function(){
 
    console.log(column + "," + mode + "," + value);
  });
+
+ $(".filterClear").click(function () {
+   $('body').append('<form id="filterForm" action="table.php" method="GET"></form>');
+
+   var $filterForm = $('#filterForm');
+
+   $filterForm.append('<input type="hidden" name="name" id="name"/>');
+   $filterForm.find("#name").val(tableName);
+   $filterForm.append('<input type="hidden" name="filter" id="filter"/>');
+   $filterForm.find("#filter").val('');
+
+   $filterForm.submit();
+ });
 });
