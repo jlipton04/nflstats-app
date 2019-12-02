@@ -11,10 +11,15 @@ $(document).ready(function(){
    filterString = urlParams.get('filter');
 
    if ($(this).parent().find(".filterVal").attr('type') == "text") {
-     value = '"' + value + '"';
+     if (mode.includes('LIKE')) {
+       mode = ' ' + mode + ' ';
+       value = "'%" + value + "%'";
+     } else {
+       value = '"' + value + '"';
+     }
    }
 
-   if (filterString == null) {
+   if (filterString == '' || filterString == null) {
      filterString = column + mode + value;
    } else {
      filterString += ' AND ' + column + mode + value;

@@ -50,4 +50,6 @@
   echo $sql;
 
   $conn->close();
+
+  echo "<script>window.close();</script>";
 ?>

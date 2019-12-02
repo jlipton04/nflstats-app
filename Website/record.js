@@ -4,7 +4,7 @@ $(document).ready(function(){
     action = urlParams.get('action'),
     table = urlParams.get('table');
 
-    $('body').append('<form id="recordForm" action="submitRecord.php" method="POST"></form>');
+    $('body').append('<form id="recordForm" action="submitRecord.php" method="POST" target="_blank"></form>');
 
     var $recordForm = $('#recordForm');
 
@@ -59,6 +59,7 @@ $(document).ready(function(){
     }
 
     $recordForm.submit();
+    location.reload();
   });
 
   $(".deleteRecordButton").click(function () {
@@ -74,7 +75,7 @@ $(document).ready(function(){
       whereStatement += $idInput.val();
     }
 
-    $('body').append('<form id="recordForm" action="submitRecord.php" method="POST"></form>');
+    $('body').append('<form id="recordForm" action="submitRecord.php" method="POST" target="_blank"></form>');
 
     var $recordForm = $('#recordForm');
 
@@ -86,5 +87,6 @@ $(document).ready(function(){
     $recordForm.find("#whereStatement").val(whereStatement);
 
     $recordForm.submit();
+    location.reload();
   });
 });
