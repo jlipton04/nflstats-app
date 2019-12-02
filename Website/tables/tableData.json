@@ -129,21 +129,6 @@
           "type" : "number"
         },
         {
-          "column" : "age",
-          "displayName" : "Age",
-          "type" : "number"
-        },
-        {
-          "column" : "games",
-          "displayName" : "Games",
-          "type" : "number"
-        },
-        {
-          "column" : "starts",
-          "displayName" : "Starts",
-          "type" : "number"
-        },
-        {
           "column" : "completions",
           "displayName" : "Completions",
           "type" : "number"
@@ -151,11 +136,6 @@
         {
           "column" : "attempts",
           "displayName" : "Attempts",
-          "type" : "number"
-        },
-        {
-          "column" : "comp_percent",
-          "displayName" : "Completion %",
           "type" : "number"
         },
         {
@@ -169,11 +149,6 @@
           "type" : "number"
         },
         {
-          "column" : "td_percent",
-          "displayName" : "Touchdown %",
-          "type" : "number"
-        },
-        {
           "column" : "int",
           "displayName" : "Interception %",
           "type" : "number"
@@ -181,26 +156,6 @@
         {
           "column" : "long",
           "displayName" : "Long",
-          "type" : "number"
-        },
-        {
-          "column" : "yards_per_attempt",
-          "displayName" : "Yards Per Attempt",
-          "type" : "number"
-        },
-        {
-          "column" : "yards_per_comp",
-          "displayName" : "Yars Per Completion",
-          "type" : "number"
-        },
-        {
-          "column" : "yards_per_game",
-          "displayName" : "Yards Per Game",
-          "type" : "number"
-        },
-        {
-          "column" : "rating",
-          "displayName" : "Rating",
           "type" : "number"
         },
         {
@@ -384,11 +339,6 @@
           "type" : "number"
         },
         {
-          "column" : "wl_percent",
-          "displayName" : "Win/Loss %",
-          "type" : "number"
-        },
-        {
           "column" : "points_for",
           "displayName" : "Points For",
           "type" : "number"
@@ -396,21 +346,6 @@
         {
           "column" : "points_against",
           "displayName" : "Points Against",
-          "type" : "number"
-        },
-        {
-          "column" : "yards",
-          "displayName" : "Yards",
-          "type" : "number"
-        },
-        {
-          "column" : "yards_per_rec",
-          "displayName" : "Yards Per Reception",
-          "type" : "number"
-        },
-        {
-          "column" : "point_diff",
-          "displayName" : "Point Differential",
           "type" : "number"
         },
         {
@@ -454,11 +389,6 @@
           "type" : "number"
         },
         {
-          "column" : "3d_percent",
-          "displayName" : "3rd Down Conversion %",
-          "type" : "number"
-        },
-        {
           "column" : "4d_att",
           "displayName" : "4th Down Attempts",
           "type" : "number"
@@ -469,11 +399,6 @@
           "type" : "number"
         },
         {
-          "column" : "4d_percent",
-          "displayName" : "4th Down Conversion %",
-          "type" : "number"
-        },
-        {
           "column" : "rz_att",
           "displayName" : "RedZone Attempts",
           "type" : "number"
@@ -481,11 +406,6 @@
         {
           "column" : "rz_td",
           "displayName" : "RedZone Touchdowns",
-          "type" : "number"
-        },
-        {
-          "column" : "rz_percent",
-          "displayName" : "RedZone Touchdown %",
           "type" : "number"
         }
       ]

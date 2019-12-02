@@ -13,7 +13,8 @@
       $sql = $sql . ';';
     } else if ($action == 'delete') {
       $sql = $sql . 'DELETE FROM ' . $table . ' ';
-      $sql = $sql . 'WHERE ' . $columns[0]["column"] . '="' . $_POST[$columns[0]["column"]] . '";';
+      $sql = $sql . 'WHERE ' . $_POST["whereStatement"];
+      $sql = $sql . ';';
     }
 
     return $sql;

@@ -47,6 +47,7 @@ body {
 
 .page-content {
   overflow-x: auto;
+  overflow-y: scroll;
 }
 
 .table-title {
@@ -59,6 +60,18 @@ body {
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
+  margin: 10px;
+}
+
+table {
+  display: block;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+tbody{
+  overflow:auto;
+  height:500px;
 }
 
 th, td {
