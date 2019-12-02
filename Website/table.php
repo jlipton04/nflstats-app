@@ -66,7 +66,7 @@
         <li><a href="signup.php">Signup</a></li>
       </ul>
     </div>
-    <br>
+
     <div id="navbar">
       <ul>
         <li><a class="active" href="table.php?name=team">Team</a></li>
@@ -77,6 +77,7 @@
         <li><a href="table.php?name=rushing">Rushing</a></li>
       </ul>
     </div>
+
     <div class="row page-content">
       <div class="table-title"></div>
       <div class="filterContainer">
