@@ -18,9 +18,19 @@
   <div class="container">
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
+      <img src="logo.png" height="40" width="40" align="right">
+    </div>
+    <div id="navbar">
+      <ul>
+        <li><a class="active" href="index.php">Home</a></li>
+        <li><a href="table.php?name=team">Tables</a></li>
+        <li><a href="signup.php">Signup</a></li>
+      </ul>
     </div>
     <div class="row page-content">
-      <div>
+      <div class="index-summary">
+        <p>Welcome to the NFL Stats Web Portal for CPSC 4620.</p>
+        <p>Created by: Jacob Lipton, and Ben Joye</p>
       </div>
     </div>
   </div>

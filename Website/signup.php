@@ -12,6 +12,13 @@
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
     </div>
+    <div id="navbar">
+      <ul>
+        <li><a class="active" href="index.php">Home</a></li>
+        <li><a href="table.php?name=team">Tables</a></li>
+        <li><a href="signup.php">Signup</a></li>
+      </ul>
+    </div>
     <div class="row page-content">
       <div class="offset-sm-2 col-sm-8 signup-container row">
         <div class="col-md-12 signup-title">Sign Up</div>
