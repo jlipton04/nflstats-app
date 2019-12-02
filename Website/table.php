@@ -59,6 +59,24 @@
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
     </div>
+    <div id="navbar">
+      <ul>
+        <li><a class="active" href="index.php">Home</a></li>
+        <li><a href="table.php?name=team">Tables</a></li>
+        <li><a href="signup.php">Signup</a></li>
+      </ul>
+    </div>
+    <br>
+    <div id="navbar">
+      <ul>
+        <li><a class="active" href="table.php?name=team">Team</a></li>
+        <li><a href="table.php?name=game">Game</a></li>
+        <li><a href="table.php?name=player">Player</a></li>
+        <li><a href="table.php?name=passing">Passing</a></li>
+        <li><a href="table.php?name=receiving">Receiving</a></li>
+        <li><a href="table.php?name=rushing">Rushing</a></li>
+      </ul>
+    </div>
     <div class="row page-content">
       <div class="table-title"></div>
       <div class="filterContainer">
