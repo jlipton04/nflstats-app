@@ -53,6 +53,42 @@
     </div>
     <div class="row page-content">
       <div class="table-title"></div>
+      <div class="filterContainer">
+        <div class="numericalQueryBuilder">
+          <select>
+            <?php for ($i = 0; $i < count($tableColumns); $i++) {
+              if ($tableColumns[$i]["type"] == 'number') {
+                echo '<option value="' . $tableColumns[$i]["column"] . '">' . $tableColumns[$i]["displayName"] . '</option>';
+              }
+            }?>
+          </select>
+          <select>
+            <option value="<"><</option>
+            <option value="=">=</option>
+            <option value=">">></option>
+            <option value="!=">!=</option>
+          </select>
+          <input class="filterVal" type="number" />
+          <input class="numberFilterAdd" type="button" value="Add Filter" />
+        </div>
+        <div class="textQueryBuilder">
+          <select>
+            <?php for ($i = 0; $i < count($tableColumns); $i++) {
+              if ($tableColumns[$i]["type"] == 'varchar') {
+                echo '<option value="' . $tableColumns[$i]["column"] . '">' . $tableColumns[$i]["displayName"] . '</option>';
+              }
+            }?>
+          </select>
+          <select>
+            <option value="=">=</option>
+            <option value="!=">!=</option>
+            <option value="LIKE">LIKE</option>
+            <option value="NOT LIKE">NOT LIKE</option>
+          </select>
+          <input class="filterVal" type="text" />
+          <input class="textFilterAdd" type="button" value="Add Filter" />
+        </div>
+      </div>
       <table class="table-container">
         <thead>
           <tr>
