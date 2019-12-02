@@ -47,7 +47,9 @@
 
   $sql = buildQuery($tableColumns, $action, $tableName);
 
-  echo $sql;
+  //echo $sql;
+
+  $result = mysqli_query($conn, $sql);
 
   $conn->close();
 
