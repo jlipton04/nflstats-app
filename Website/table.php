@@ -32,11 +32,19 @@
     //GET QueryString
     $tableName = $_GET["name"];
     $tableColumns = null;
-    $sql = "SELECT * FROM " . $tableName . ";";
+    $sql = "SELECT * FROM " . $tableName;
+
+    $filter = $_GET["filter"];
+
+    if ($filter != '') {
+      $sql = $sql . " WHERE " . $filter;
+    }
+
+    $sql = $sql . ";";
 
     $result = mysqli_query($conn, $sql);
 
-    //echo $sql;
+    echo $sql;
 
     //Matches table name from querystring to json data
     for ($i = 0; $i < count($tableData["tableNames"]); $i++) {
@@ -55,38 +63,38 @@
       <div class="table-title"></div>
       <div class="filterContainer">
         <div class="numericalQueryBuilder">
-          <select>
+          <select class="columnSelect">
             <?php for ($i = 0; $i < count($tableColumns); $i++) {
               if ($tableColumns[$i]["type"] == 'number') {
                 echo '<option value="' . $tableColumns[$i]["column"] . '">' . $tableColumns[$i]["displayName"] . '</option>';
               }
             }?>
           </select>
-          <select>
+          <select class="modeSelect">
             <option value="<"><</option>
             <option value="=">=</option>
             <option value=">">></option>
             <option value="!=">!=</option>
           </select>
           <input class="filterVal" type="number" />
-          <input class="numberFilterAdd" type="button" value="Add Filter" />
+          <input class="filterAdd" type="button" value="Add Filter" />
         </div>
         <div class="textQueryBuilder">
-          <select>
+          <select class="columnSelect">
             <?php for ($i = 0; $i < count($tableColumns); $i++) {
               if ($tableColumns[$i]["type"] == 'varchar') {
                 echo '<option value="' . $tableColumns[$i]["column"] . '">' . $tableColumns[$i]["displayName"] . '</option>';
               }
             }?>
           </select>
-          <select>
+          <select class="modeSelect">
             <option value="=">=</option>
             <option value="!=">!=</option>
             <option value="LIKE">LIKE</option>
             <option value="NOT LIKE">NOT LIKE</option>
           </select>
           <input class="filterVal" type="text" />
-          <input class="textFilterAdd" type="button" value="Add Filter" />
+          <input class="filterAdd" type="button" value="Add Filter" />
         </div>
       </div>
       <table class="table-container">
