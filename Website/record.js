@@ -56,9 +56,34 @@ $(document).ready(function(){
 
       $recordForm.append('<input type="hidden" name="setStatement" id="setStatement"/>');
       $recordForm.find("#setStatement").val(setStmt);
-
-      console.log(setStmt);
     }
+
+    $recordForm.submit();
+  });
+
+  $(".deleteRecordButton").click(function () {
+    var $idInput = $(".page-content").find(".recordInput").first()
+    whereStatement = $($idInput).attr('name') + '=',
+    urlParams = new URLSearchParams(window.location.search),
+    table = urlParams.get('table');
+
+    var inputType = $idInput.attr('type');
+    if (inputType == 'text' || inputType == 'date') {
+      whereStatement += '"' + $idInput.val() + '"';
+    } else {
+      whereStatement += $idInput.val();
+    }
+
+    $('body').append('<form id="recordForm" action="submitRecord.php" method="POST"></form>');
+
+    var $recordForm = $('#recordForm');
+
+    $recordForm.append('<input type="hidden" name="table" id="table"/>');
+    $recordForm.find("#table").val(table);
+    $recordForm.append('<input type="hidden" name="action" id="action"/>');
+    $recordForm.find("#action").val("delete");
+    $recordForm.append('<input type="hidden" name="whereStatement" id="whereStatement"/>');
+    $recordForm.find("#whereStatement").val(whereStatement);
 
     $recordForm.submit();
   });
