@@ -44,8 +44,6 @@
 
     $result = mysqli_query($conn, $sql);
 
-    echo $sql;
-
     //Matches table name from querystring to json data
     for ($i = 0; $i < count($tableData["tableNames"]); $i++) {
       if ($tableName == $tableData["tableNames"][$i]["name"]) {
@@ -116,6 +114,7 @@
           <input class="filterAdd" type="button" value="Add Filter" />
         </div>
         <input type="button" class="filterClear" value="Clear Filters" />
+        <div class="current-query"><span class="query-label">Current Query: </span><?php echo $sql; ?></div>
       </div>
       <table class="table-container">
         <thead>
