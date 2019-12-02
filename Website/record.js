@@ -91,9 +91,6 @@ $(document).ready(function(){
   });
 
   $(".returnButton").click(function () {
-    var urlParams = new URLSearchParams(window.location.search),
-    table = urlParams.get('table');
-
-    location.replace('table.php?name=' + table);
+    window.close();
   });
 });
