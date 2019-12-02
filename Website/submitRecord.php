@@ -2,17 +2,15 @@
   function buildQuery($columns, $action, $table) {
     $sql = '';
 
-    if ($action == 'insert') {
-      $sql = $sql . 'INSERT INTO ' . $table . ' VALUES (';
-
-      for ($i = 0; $i < count($columns); $i++) {
-        $sql = $sql . '"' . $_POST[$columns[$i]["column"]] . '",';
-      }
-
-      $sql = $sql . ');';
-    } else if ($action == 'update') {
+    if ($action == 'add') {
+      $sql = $sql . 'INSERT INTO ' . $table . '(' . $_POST["columns"] . ') ';
+      $sql = $sql . 'VALUES (' . $_POST["values"] . ')';
+      $sql = $sql . ';';
+    } else if ($action == 'edit') {
       $sql = $sql . 'UPDATE ' . $table . ' ';
-      $sql = $sql . 'SET ';
+      $sql = $sql . 'SET ' . $_POST["setStatement"] . ' ';
+      $sql = $sql . 'WHERE ' . strstr($_POST["setStatement"], ",", true);
+      $sql = $sql . ';';
     } else if ($action == 'delete') {
       $sql = $sql . 'DELETE FROM ' . $table . ' ';
       $sql = $sql . 'WHERE ' . $columns[0]["column"] . '="' . $_POST[$columns[0]["column"]] . '";';
@@ -31,8 +29,8 @@
   $conn = new mysqli($servername, $username, $password, $dbname);
 
   //Get POST Data
-  $tableName = substr($_GET["table"], 1, strlen($_GET["table"])-2);
-  $action = substr($_GET["action"], 1, strlen($_GET["action"])-2);
+  $tableName = $_POST["table"];
+  $action = $_POST["action"];
 
   //Get JSON Table Data
   $strJsonFileContents = file_get_contents("tables/tableData.json");

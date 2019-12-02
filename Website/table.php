@@ -31,7 +31,6 @@
 
     //GET QueryString
     $tableName = $_GET["name"];
-    //$tableName = substr($tableName,1,strlen($tableName)-2);
     $tableColumns = null;
     $sql = "SELECT * FROM " . $tableName . ";";
 

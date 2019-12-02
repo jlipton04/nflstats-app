@@ -6,7 +6,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
 
-  <script type="text/javascript" src="table.js"></script>
+  <script type="text/javascript" src="record.js"></script>
 
   <?php
     //Connection info
@@ -19,9 +19,9 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     //Get POST Data
-    $action = substr($_GET["action"], 1, strlen($_GET["action"])-2);
-    $tableName = substr($_GET["table"], 1, strlen($_GET["table"])-2);
-    $id = substr($_GET["id"], 1, strlen($_GET["id"])-2);
+    $action = $_GET["action"];
+    $tableName = $_GET["table"];
+    $id = $_GET["id"];
 
     //Get JSON Table Data
     $strJsonFileContents = file_get_contents("tables/tableData.json");
@@ -53,10 +53,17 @@
           <div class="input-label col-md-2"><?php echo $tableColumns[$i]["displayName"]; ?>:</div>
           <div class="col-md-4">
             <?php
+              $type = "text";
+              if ($tableColumns[$i]["type"] == "number") {
+                $type = "number";
+              } else if ($tableColumns[$i]["type"] == "date") {
+                $type = "date";
+              }
+
               if ($action == 'add') {
-                echo '<input type="text" name="' . $tableColumns[$i]["column"] . '"/>';
+                echo '<input class="recordInput" type="' . $type . '" name="' . $tableColumns[$i]["column"] . '"/>';
               } else if ($action == 'edit') {
-                echo '<input type="text" name="' . $tableColumns[$i]["column"] . '" value="' . $row[$tableColumns[$i]["column"]] . '"/>';
+                echo '<input class="recordInput" type="' . $type . '" name="' . $tableColumns[$i]["column"] . '" value="' . $row[$tableColumns[$i]["column"]] . '"/>';
               }
             ?>
           </div>
@@ -64,7 +71,7 @@
 
         $conn->close();
       ?>
-      <div><input type="button" /></div>
+      <div><input type="button" class="submitRecordButton" /></div>
     </div>
   </div>
 </body>
