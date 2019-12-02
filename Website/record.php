@@ -74,7 +74,9 @@
       <div><input type="button" class="submitRecordButton" value="Submit Changes"/></div>
       <?php if ($action == 'edit') {?>
         <input type="button" class="deleteRecordButton" value="Delete Record"/>
-      <?php } ?>
+      <?php }
+        echo '<input type="button" class="returnButton" value="Back to Table"/>';
+       ?>
     </div>
   </div>
 </body>
