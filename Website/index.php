@@ -18,7 +18,6 @@
   <div class="container">
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
-      <img src="logo.png" height="40" width="40" align="right">
     </div>
     <div id="navbar">
       <ul>
@@ -31,6 +30,8 @@
       <div class="index-summary">
         <p>Welcome to the NFL Stats Web Portal for CPSC 4620.</p>
         <p>Created by: Jacob Lipton, and Ben Joye</p>
+        <img src="logo.png" height="100" width="100">
+        <img src="nfllogo.jpg" height="100" width="100">
       </div>
     </div>
   </div>
