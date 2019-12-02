@@ -111,7 +111,7 @@
                 if ($y != 0) {
                   echo "<td>" . $row[$tableColumns[$y]["column"]] . "</td>";
                 } else {
-                  echo '<td><a href=record.php?action="edit"&table="' . $tableName . '"&id="' . $row[$tableColumns[$y]["column"]] . '">' . $row[$tableColumns[$y]["column"]] . '</a></td>';
+                  echo '<td><a href=record.php?action=edit&table=' . $tableName . '&id=' . $row[$tableColumns[$y]["column"]] . '>' . $row[$tableColumns[$y]["column"]] . '</a></td>';
                 }
               }
               echo "</tr>";
