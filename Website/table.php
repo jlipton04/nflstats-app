@@ -129,6 +129,13 @@
         </div>
         <input type="button" class="filterClear" value="Clear Filters" />
         <div class="current-query"><span class="query-label">Current Query: </span><?php echo $sql; ?></div>
+        <form action="record.php" target="_blank">
+          <input type="hidden" name="action" value="add" />
+          <?php
+            echo '<input type="hidden" name="table" value="' . $tableName . '" />';
+          ?>
+          <input type="submit" class="addRecord" value="Add Record" />
+        </form>
       </div>
       <table class="table-container">
         <thead>

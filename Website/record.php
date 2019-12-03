@@ -82,7 +82,10 @@
 
         $conn->close();
       ?>
-      <div><input type="button" class="submitRecordButton" value="Submit Changes"/></div>
+      <div>
+        <?php if ($action == 'edit') {?><input type="button" class="submitRecordButton" value="Submit Changes"/> <?php } else { ?>
+          <input type="button" class="submitRecordButton" value="Add Record"/> <?php } ?>
+      </div>
       <?php if ($action == 'edit') {?>
         <input type="button" class="deleteRecordButton" value="Delete Record"/>
       <?php }
