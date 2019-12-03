@@ -1,3 +1,5 @@
+<?php error_reporting(0); ?>
+
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
@@ -24,11 +26,13 @@
     $password = $_POST["password"];
     $confirmPassword = $_POST["password"];
 
+    //Makes sure POST data is present before querying
     if ($email != '' && $password != '') {
       $sql = 'INSERT INTO user ';
       $sql = $sql . "(email,password) VALUES(";
       $sql = $sql . '"' . $email . '","' . $password . '");';
 
+      //Executes INSERT query to user table
       $result = mysqli_query($conn, $sql);
     }
   ?>

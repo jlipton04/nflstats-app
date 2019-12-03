@@ -1,3 +1,5 @@
+<?php error_reporting(0); ?>
+
 <?php
   //Connection info
   $servername = "mysql1.cs.clemson.edu";
@@ -12,26 +14,28 @@
   $password = $_POST["password"];
 
   if ($email != '' && $password != '') {
+    //If there is sufficient POST data it will submit a query to the DB,
+    //checking for the email/password combo
     $sql = 'SELECT * FROM user WHERE ';
     $sql = $sql . "email = '" . $email . "' AND ";
     $sql = $sql . "password = '" . $password . "';";
 
     $result = mysqli_query($conn, $sql);
 
+    //On success, the user is logged in and sent to the homepage
     if ($result->num_rows == 0) {
-      echo "Wrong username/password combo";
-    } else {
-      //Success
+      echo "<script type='text/javascript'> alert('Wrong username/password combo!'); </script>";
+    } else { //Success
       $cookie_name = "auth";
       $cookie_value = $email;
       setcookie($cookie_name, $cookie_value, time() + (1800), "/"); // 86400 = 1 day
 
-      echo isset($_COOKIE['auth']);
-
+      //Redirects to homepage
       echo '<script type="text/javascript"> window.location = "index.php"; </script>';
     }
   }
 ?>
+
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">

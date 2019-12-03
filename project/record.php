@@ -1,4 +1,7 @@
+<?php error_reporting(0); ?>
+
 <?php
+  //Allows logic for users to be detected as authenitcated
   $signedIn = false;
 
   if(!isset($_COOKIE["auth"])) {
@@ -46,6 +49,7 @@
       }
     }
 
+    //Builds SELECT query to get row data if the record view is in edit mode
     $sql = 'SELECT * FROM ' . $tableName . ' WHERE ' . $tableColumns[0]["column"] . '="' . $id . '";';
     $result = mysqli_query($conn, $sql);
   ?>
@@ -58,6 +62,7 @@
     </div>
     <div class="row page-content">
       <?php
+        //Fetches SQL row if the record viw is in edit mode
         if ($action == 'edit') {
           $row = $result->fetch_assoc();
         }
@@ -65,6 +70,7 @@
           <div class="input-label col-md-2"><?php echo $tableColumns[$i]["displayName"]; ?>:</div>
           <div class="col-md-4">
             <?php
+              //Uses JSON data to determine if the column is numerical or a varchar
               $type = "text";
               if ($tableColumns[$i]["type"] == "number") {
                 $type = "number";
@@ -72,6 +78,7 @@
                 $type = "date";
               }
 
+              //Builds input and fills it with fresh data if applicable
               if ($action == 'add') {
                 echo '<input class="recordInput" type="' . $type . '" name="' . $tableColumns[$i]["column"] . '"/>';
               } else if ($action == 'edit') {
@@ -81,6 +88,7 @@
           </div>
         <?php }
 
+        //Close DB connection
         $conn->close();
       ?>
       <div>

@@ -4,10 +4,12 @@ $(document).ready(function(){
     action = urlParams.get('action'),
     table = urlParams.get('table');
 
+    //Creates form to store values for submitting record to DB
     $('body').append('<form id="recordForm" action="submitRecord.php" method="POST" target="_blank"></form>');
 
     var $recordForm = $('#recordForm');
 
+    //Adds table name and action
     $recordForm.append('<input type="hidden" name="table" id="table"/>');
     $recordForm.find("#table").val(table);
     $recordForm.append('<input type="hidden" name="action" id="action"/>');
@@ -18,19 +20,24 @@ $(document).ready(function(){
       var values = '';
 
       $(".recordInput").each(function () {
-        colNames += $(this).attr('name') + ',';
+        //Only add column to SQL if it is not null
+        if ($(this).val() != '') {
+          colNames += $(this).attr('name') + ',';
 
-        var inputType = $(this).attr('type');
-        if (inputType == 'text' || inputType == 'date') {
-          values += '"' + $(this).val() + '",';
-        } else {
-          values += $(this).val() + ',';
+          var inputType = $(this).attr('type');
+          if (inputType == 'text' || inputType == 'date') {
+            values += '"' + $(this).val() + '",';
+          } else {
+            values += $(this).val() + ',';
+          }
         }
       });
 
+      //Takes off hanging commas
       colNames = colNames.substring(0, colNames.length-1);
       values = values.substring(0, values.length-1);
 
+      //Puts columns and values in the form for the SQL query
       $recordForm.append('<input type="hidden" name="columns" id="columns"/>');
       $recordForm.find("#columns").val(colNames);
       $recordForm.append('<input type="hidden" name="values" id="values"/>');
@@ -42,22 +49,28 @@ $(document).ready(function(){
       var setStmt = '';
 
       $(".recordInput").each(function () {
-        setStmt += $(this).attr('name') + "=" ;
+        //Only add column to SQL if it is not null
+        if ($(this).val() != '') {
+          setStmt += $(this).attr('name') + "=" ;
 
-        var inputType = $(this).attr('type');
-        if (inputType == 'text' || inputType == 'date') {
-          setStmt += '"' + $(this).val() + '",';
-        } else {
-          setStmt += $(this).val() + ',';
+          var inputType = $(this).attr('type');
+          if (inputType == 'text' || inputType == 'date') {
+            setStmt += '"' + $(this).val() + '",';
+          } else {
+            setStmt += $(this).val() + ',';
+          }
         }
       });
 
+      //Takes off hanging comma
       setStmt = setStmt.substring(0, setStmt.length-1);
 
+      //Puts update string in form
       $recordForm.append('<input type="hidden" name="setStatement" id="setStatement"/>');
       $recordForm.find("#setStatement").val(setStmt);
     }
 
+    //Submits the record to the DB and reloads it to reflect the changes
     $recordForm.submit();
     location.reload();
   });
@@ -75,10 +88,12 @@ $(document).ready(function(){
       whereStatement += $idInput.val();
     }
 
+    //Creates the form to delete the record
     $('body').append('<form id="recordForm" action="submitRecord.php" method="POST" target="_blank"></form>');
 
     var $recordForm = $('#recordForm');
 
+    //Adds table, action, and the where statement nessesary to delete the record
     $recordForm.append('<input type="hidden" name="table" id="table"/>');
     $recordForm.find("#table").val(table);
     $recordForm.append('<input type="hidden" name="action" id="action"/>');
@@ -86,10 +101,12 @@ $(document).ready(function(){
     $recordForm.append('<input type="hidden" name="whereStatement" id="whereStatement"/>');
     $recordForm.find("#whereStatement").val(whereStatement);
 
+    //Submits the record to the DB and reloads it to reflect the changes
     $recordForm.submit();
     location.reload();
   });
 
+  //Closes the page to go back to the table view
   $(".returnButton").click(function () {
     window.close();
   });
