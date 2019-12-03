@@ -54,6 +54,7 @@
         <li><a href="table.php?name=team">Tables</a></li>
         <li><a href="signup.php">Signup</a></li>
         <li><a href="signin.php">Sign In</a></li>
+        <li><a href="signout.php">Sign Out</a></li>
       </ul>
     </div>
     <div class="row page-content">
