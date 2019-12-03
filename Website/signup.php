@@ -46,7 +46,7 @@
     <div class="row page-content">
       <div class="offset-sm-2 col-sm-8 signup-container row">
         <div class="col-md-12 signup-title">Sign Up</div>
-        <form action="signup.php" method="POST">
+        <form class="signup-form" action="signup.php" method="POST">
           <div class="row">
             <div class="offset-md-2 col-md-4 input-label">Email:</div><div class="col-md-6"> <input class="signup-input" type="email" name="email" /> </div>
             <div class="offset-md-2 col-md-4 input-label">Password:</div><div class="col-md-6"> <input class="signup-input" type="password" name="password" /> </div>
