@@ -9,6 +9,8 @@
   }
 ?>
 
+<?php error_reporting(0); ?>
+
 <?php
   function buildQuery($columns, $action, $table) {
     $sql = '';

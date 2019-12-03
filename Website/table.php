@@ -9,6 +9,8 @@
   }
 ?>
 
+<?php error_reporting(0); ?>
+
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
@@ -45,7 +47,9 @@
     $tableColumns = null;
     $sql = "SELECT * FROM " . $tableName;
 
-    $filter = $_GET["filter"];
+    if (!empty($_GET["filter"])){
+      $filter = $_GET["filter"];
+    }
 
     if ($filter != '') {
       $sql = $sql . " WHERE " . $filter;
