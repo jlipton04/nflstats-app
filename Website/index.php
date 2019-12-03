@@ -3,7 +3,7 @@
 
   if(!isset($_COOKIE["auth"])) {
     //redirect to signin
-    echo '<script type="text/javascript"> window.location = "signin.php"; </script>';
+    //echo '<script type="text/javascript"> window.location = "signin.php"; </script>';
   } else {
     $signedIn = true;
   }
