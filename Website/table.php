@@ -73,6 +73,7 @@
         <li><a class="active" href="index.php">Home</a></li>
         <li><a href="table.php?name=team">Tables</a></li>
         <li><a href="signup.php">Signup</a></li>
+        <li><a href="signin.php">Sign In</a></li>
       </ul>
     </div>
 
