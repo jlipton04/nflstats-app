@@ -35,6 +35,7 @@
   <div class="container">
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
+      <div class="username-welcome"><?php if (isset($_COOKIE["auth"])) echo 'Welcome ' . $_COOKIE["auth"] . "!"; ?></div>
     </div>
     <div id="navbar">
       <ul>
