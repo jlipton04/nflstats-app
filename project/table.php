@@ -31,32 +31,24 @@
     //Connect to DB
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    //Verify connection
-    /*echo $conn->connect_error;
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-    echo "Connected successfully";*/
-
     //Get JSON Table Data
     $strJsonFileContents = file_get_contents("tables/tableData.json");
     $tableData = json_decode($strJsonFileContents, true);
 
-    //GET QueryString
+    //Builds basic SELECT for table
     $tableName = $_GET["name"];
     $tableColumns = null;
     $sql = "SELECT * FROM " . $tableName;
 
-    if (!empty($_GET["filter"])){
-      $filter = $_GET["filter"];
-    }
-
+    //If there is a filter string, it adds it to the WHERE clause
+    $filter = $_GET["filter"];
     if ($filter != '') {
       $sql = $sql . " WHERE " . $filter;
     }
 
     $sql = $sql . ";";
 
+    //Executes SELECT query
     $result = mysqli_query($conn, $sql);
 
     //Matches table name from querystring to json data

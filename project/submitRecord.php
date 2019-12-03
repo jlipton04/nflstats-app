@@ -1,6 +1,7 @@
 <?php
   $signedIn = false;
 
+  //Makes sure user is signed in to view page
   if(!isset($_COOKIE["auth"])) {
     //redirect to signin
     echo '<script type="text/javascript"> window.location = "signin.php"; </script>';
@@ -12,6 +13,8 @@
 <?php error_reporting(0); ?>
 
 <?php
+  //This function will build a query based on the query mode, tables and columns
+  //It assumes certain POST fields based on the action
   function buildQuery($columns, $action, $table) {
     $sql = '';
 
@@ -58,13 +61,17 @@
     }
   }
 
+  //Builds query
   $sql = buildQuery($tableColumns, $action, $tableName);
 
   echo $sql;
 
+  //Executes query
   $result = mysqli_query($conn, $sql);
 
+  //Closes DB connection
   $conn->close();
 
+  //Closes the page
   echo "<script>window.close();</script>";
 ?>

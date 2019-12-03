@@ -1,6 +1,7 @@
 <?php error_reporting(0); ?>
 
 <?php
+  //Allows logic for users to be detected as authenitcated
   $signedIn = false;
 
   if(!isset($_COOKIE["auth"])) {

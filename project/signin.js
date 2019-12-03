@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  //Makes sure that all fields are filled before submitting the form
   $("#signinSubmit").click(function () {
     var email = $(this).parent().parent().find(".signin-input[name='email']").val(),
     password = $(this).parent().parent().find(".signin-input[name='password']").val();
