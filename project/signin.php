@@ -1,3 +1,5 @@
+<?php error_reporting(0); ?>
+
 <?php
   //Connection info
   $servername = "mysql1.cs.clemson.edu";
@@ -33,7 +35,6 @@
   }
 ?>
 
-<?php error_reporting(0); ?>
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">

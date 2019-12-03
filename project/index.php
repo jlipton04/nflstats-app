@@ -1,3 +1,5 @@
+<?php error_reporting(0); ?>
+
 <?php
   $signedIn = false;
 
@@ -8,8 +10,6 @@
     $signedIn = true;
   }
 ?>
-
-<?php error_reporting(0); ?>
 
 <html>
 <head>
