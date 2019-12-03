@@ -85,6 +85,7 @@
         <li><a href="table.php?name=passing">Passing</a></li>
         <li><a href="table.php?name=receiving">Receiving</a></li>
         <li><a href="table.php?name=rushing">Rushing</a></li>
+        <li><a href="table.php?name=user">Admin</a></li>
       </ul>
     </div>
 

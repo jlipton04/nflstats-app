@@ -409,6 +409,46 @@
           "type" : "number"
         }
       ]
+    },
+    {
+      "name" : "user",
+      "columns" : [
+        {
+          "column" : "email",
+          "displayName" : "Email",
+          "type" : "varchar"
+        },
+        {
+          "column" : "password",
+          "displayName" : "Password",
+          "type" : "varchar"
+        },
+        {
+          "column" : "first",
+          "displayName" : "First Name",
+          "type" : "varchar"
+        },
+        {
+          "column" : "last",
+          "displayName" : "Last Name",
+          "type" : "varchar"
+        },
+        {
+          "column" : "age",
+          "displayName" : "Age",
+          "type" : "number"
+        },
+        {
+          "column" : "phone_number",
+          "displayName" : "Phone Number",
+          "type" : "number"
+        },
+        {
+          "column" : "address",
+          "displayName" : "Address",
+          "type" : "varchar"
+        }
+      ]
     }
   ]
 }
