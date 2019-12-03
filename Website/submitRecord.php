@@ -14,7 +14,7 @@
     $sql = '';
 
     if ($action == 'add') {
-      $sql = $sql . 'INSERT INTO ' . $table . '(' . $_POST["columns"] . ') ';
+      $sql = $sql . 'INSERT INTO ' . $table . ' (' . $_POST["columns"] . ') ';
       $sql = $sql . 'VALUES (' . $_POST["values"] . ')';
       $sql = $sql . ';';
     } else if ($action == 'edit') {
@@ -58,7 +58,7 @@
 
   $sql = buildQuery($tableColumns, $action, $tableName);
 
-  //echo $sql;
+  echo $sql;
 
   $result = mysqli_query($conn, $sql);
 
