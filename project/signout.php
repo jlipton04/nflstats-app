@@ -2,5 +2,8 @@
   //Delete authentication cookie
   setcookie("auth", "", time() - 3600, "/");
 
-  echo 'You have been successfully signed out.'
+  echo '<script type="text/javascript">
+          window.location = "index.php";
+          alert("You have been signed out successfully!"); 
+        </script>';
 ?>
