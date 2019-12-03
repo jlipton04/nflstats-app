@@ -44,13 +44,15 @@ $(document).ready(function(){
       var setStmt = '';
 
       $(".recordInput").each(function () {
-        setStmt += $(this).attr('name') + "=" ;
+        if ($(this).val() != '') {
+          setStmt += $(this).attr('name') + "=" ;
 
-        var inputType = $(this).attr('type');
-        if (inputType == 'text' || inputType == 'date') {
-          setStmt += '"' + $(this).val() + '",';
-        } else {
-          setStmt += $(this).val() + ',';
+          var inputType = $(this).attr('type');
+          if (inputType == 'text' || inputType == 'date') {
+            setStmt += '"' + $(this).val() + '",';
+          } else {
+            setStmt += $(this).val() + ',';
+          }
         }
       });
 
