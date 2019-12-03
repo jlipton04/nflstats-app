@@ -1,4 +1,15 @@
 <?php
+  $signedIn = false;
+
+  if(!isset($_COOKIE["auth"])) {
+    //redirect to signin
+    echo '<script type="text/javascript"> window.location = "signin.php"; </script>';
+  } else {
+    $signedIn = true;
+  }
+?>
+
+<?php
   function buildQuery($columns, $action, $table) {
     $sql = '';
 

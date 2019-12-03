@@ -1,3 +1,14 @@
+<?php
+  $signedIn = false;
+
+  if(!isset($_COOKIE["auth"])) {
+    //redirect to signin
+    echo '<script type="text/javascript"> window.location = "signin.php"; </script>';
+  } else {
+    $signedIn = true;
+  }
+?>
+
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">

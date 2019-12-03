@@ -1,3 +1,37 @@
+<?php
+  //Connection info
+  $servername = "mysql1.cs.clemson.edu";
+  $username = "bpjoye";
+  $password = "cpsc4620";
+  $dbname = "nfl_db";
+
+  //Connect to DB
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  if ($email != '' && $password != '') {
+    $sql = 'SELECT * FROM user WHERE ';
+    $sql = $sql . "email = '" . $email . "' AND ";
+    $sql = $sql . "password = '" . $password . "';";
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result->num_rows == 0) {
+      echo "Wrong username/password combo";
+    } else {
+      //Success
+      $cookie_name = "auth";
+      $cookie_value = "true";
+      setcookie($cookie_name, $cookie_value, time() + (1800), "/"); // 86400 = 1 day
+
+      echo isset($_COOKIE['auth']);
+
+      echo '<script type="text/javascript"> window.location = "index.php"; </script>';
+    }
+  }
+?>
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
@@ -10,38 +44,6 @@
   <script type="text/javascript" src="signin.js"></script>
 </head>
 <body>
-  <?php
-    //Connection info
-    $servername = "mysql1.cs.clemson.edu";
-    $username = "bpjoye";
-    $password = "cpsc4620";
-    $dbname = "nfl_db";
-
-    //Connect to DB
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    if ($email != '' && $password != '') {
-      $sql = 'SELECT * FROM user WHERE ';
-      $sql = $sql . "email = '" . $email . "' AND ";
-      $sql = $sql . "password = '" . $password . "';";
-
-      $result = mysqli_query($conn, $sql);
-
-      if ($result->num_rows == 0) {
-        echo "Wrong username/password combo";
-      } else {
-        //Success
-        $cookie_name = "auth";
-        $cookie_value = "true";
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-        echo '<script type="text/javascript"> window.location = "index.php"; </script>';
-      }
-    }
-  ?>
   <div class="container">
     <div class="row header">
       <div class="app-title">NFL STATS APP</div>
@@ -55,7 +57,7 @@
     </div>
     <div class="row page-content">
       <div class="offset-sm-2 col-sm-8 signup-container row">
-        <div class="col-md-12 signup-title">Sign Up</div>
+        <div class="col-md-12 signup-title">Sign In</div>
         <form class="signin-form" action="signin.php" method="POST">
           <div class="row">
             <div class="offset-md-2 col-md-4 input-label">Email:</div><div class="col-md-6"> <input class="signin-input" type="email" name="email" /> </div>
