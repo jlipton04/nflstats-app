@@ -24,7 +24,7 @@
 
     //On success, the user is logged in and sent to the homepage
     if ($result->num_rows == 0) {
-      echo "<script type="text/javascript"> alert('Wrong username/password combo!'); </script>";
+      echo "<script type='text/javascript'> alert('Wrong username/password combo!'); </script>";
     } else { //Success
       $cookie_name = "auth";
       $cookie_value = $email;
