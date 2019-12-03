@@ -6,6 +6,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="styles.css">
+
+  <script type="text/javascript" src="signin.js"></script>
 </head>
 <body>
   <?php
@@ -27,6 +29,17 @@
       $sql = $sql . "password = '" . $password . "';";
 
       $result = mysqli_query($conn, $sql);
+
+      if ($result->num_rows == 0) {
+        echo "Wrong username/password combo";
+      } else {
+        //Success
+        $cookie_name = "auth";
+        $cookie_value = "true";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+        echo '<script type="text/javascript"> window.location = "index.php"; </script>';
+      }
     }
   ?>
   <div class="container">
@@ -43,12 +56,11 @@
     <div class="row page-content">
       <div class="offset-sm-2 col-sm-8 signup-container row">
         <div class="col-md-12 signup-title">Sign Up</div>
-        <form class="signup-form" action="signup.php" method="POST">
+        <form class="signin-form" action="signin.php" method="POST">
           <div class="row">
-            <div class="offset-md-2 col-md-4 input-label">Email:</div><div class="col-md-6"> <input class="signup-input" type="email" name="email" /> </div>
-            <div class="offset-md-2 col-md-4 input-label">Password:</div><div class="col-md-6"> <input class="signup-input" type="password" name="password" /> </div>
-            <div class="offset-md-2 col-md-4 input-label">Confirm Password:</div><div class="col-md-6"> <input class="signup-input" type="password" name="confirmPassword" /> </div>
-            <div class="offset-md-5 col-md-2"> <input class="signup-input" type="button" value="Sign Up" id="signupSubmit" /> </div>
+            <div class="offset-md-2 col-md-4 input-label">Email:</div><div class="col-md-6"> <input class="signin-input" type="email" name="email" /> </div>
+            <div class="offset-md-2 col-md-4 input-label">Password:</div><div class="col-md-6"> <input class="signin-input" type="password" name="password" /> </div>
+            <div class="offset-md-5 col-md-2"> <input class="signup-input" type="button" value="Sign In" id="signinSubmit" /> </div>
           </div>
         </form>
       </div>
