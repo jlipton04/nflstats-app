@@ -6,8 +6,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="styles.css">
-
-  <script type="text/javascript" src="signup.js"></script>
 </head>
 <body>
   <?php
@@ -22,12 +20,11 @@
 
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $confirmPassword = $_POST["password"];
 
     if ($email != '' && $password != '') {
-      $sql = 'INSERT INTO user ';
-      $sql = $sql . "(email,password) VALUES(";
-      $sql = $sql . '"' . $email . '","' . $password . '");';
+      $sql = 'SELECT * FROM user WHERE ';
+      $sql = $sql . "email = '" . $email . "' AND ";
+      $sql = $sql . "password = '" . $password . "';";
 
       $result = mysqli_query($conn, $sql);
     }
@@ -51,7 +48,7 @@
             <div class="offset-md-2 col-md-4 input-label">Email:</div><div class="col-md-6"> <input class="signup-input" type="email" name="email" /> </div>
             <div class="offset-md-2 col-md-4 input-label">Password:</div><div class="col-md-6"> <input class="signup-input" type="password" name="password" /> </div>
             <div class="offset-md-2 col-md-4 input-label">Confirm Password:</div><div class="col-md-6"> <input class="signup-input" type="password" name="confirmPassword" /> </div>
-            <div class="offset-md-5 col-md-2"> <input class="signup-input" type="button" id="signupSubmit" value="Sign Up" /> </div>
+            <div class="offset-md-5 col-md-2"> <input class="signup-input" type="button" value="Sign Up" id="signupSubmit" /> </div>
           </div>
         </form>
       </div>
