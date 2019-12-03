@@ -18,13 +18,15 @@ $(document).ready(function(){
       var values = '';
 
       $(".recordInput").each(function () {
-        colNames += $(this).attr('name') + ',';
+        if ($(this).val() != '') {
+          colNames += $(this).attr('name') + ',';
 
-        var inputType = $(this).attr('type');
-        if (inputType == 'text' || inputType == 'date') {
-          values += '"' + $(this).val() + '",';
-        } else {
-          values += $(this).val() + ',';
+          var inputType = $(this).attr('type');
+          if (inputType == 'text' || inputType == 'date') {
+            values += '"' + $(this).val() + '",';
+          } else {
+            values += $(this).val() + ',';
+          }
         }
       });
 
